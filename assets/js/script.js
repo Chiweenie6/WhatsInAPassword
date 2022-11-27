@@ -40,12 +40,35 @@ generateBtn.addEventListener("click", writePassword);
   //   return
   // }
   
+// sign = window.prompt("hello");
 
 
+// Password length criteria
+generateBtn.addEventListener("click", pWordLength);
+
+function pWordLength() {
+  let userPLength = window.prompt("How long do you want your password to be?");
+  if (userPLength < 8) {
+    alert("Your password is too short, length must be between 8 and 128 characters.");
+    if (userPLength < 8) pWordLength();
+    // pWordLength.addEventListener("close", pWordLength);
+  } else if (userPLength > 128) {
+    alert("Your password is too long, length must be between 8 and 128 characters.");
+    if (userPLength > 128) pWordLength();
+  } else {
+    return pWordLength;
+  };
+}
+
+
+
+
+
+// Numeric character type
 var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-function pWordRules() {
-  var userNumbers = confirm("Do you want numbers in your password?");
+function pWordNumbers() {
+  var userNumbers = confirm("Would you like numbers in your password?");
   var possible = {
     userNumbers: userNumbers
   };
@@ -57,21 +80,24 @@ function randomChoice(length) {
   return randomNumber;
 }
 
-function makePWord() {
-    var chosen = pWordRules();
-    var useableChars = [];
+function generatePassword() {
+    var chosen = pWordNumbers();
+    var useableNums = [];
     var pWordArr = [];
     if(chosen.userNumbers) {
-      useableChars = useableChars.concat(numbers);
+      useableNums = useableNums.concat(numbers);
     }
 
     for(var i = 0; i < 6; i++) {
-      pWordArr.push(useableChars[randomChoice(useableChars.length)])
+      pWordArr.push(useableNums[randomChoice(useableNums.length)])
     }
 
 
   return pWordArr.join("")
 }
+
+
+
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -86,4 +112,4 @@ function writePassword() {
 }
 
 // Added event listener to generate a button
-makeBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword);
