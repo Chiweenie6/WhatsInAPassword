@@ -26,10 +26,6 @@ generateBtn.addEventListener("click", writePassword);
 //   prompt()
 // }
 
-
-
-
-
 // function generatePassword(){
 //   var myNewPassword = "",
   
@@ -41,7 +37,6 @@ generateBtn.addEventListener("click", writePassword);
   
   // Math.floor(math.random() * Array.length)
   
-  
   //   return
   // }
   
@@ -49,33 +44,33 @@ generateBtn.addEventListener("click", writePassword);
 
 var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-function getPasswordCriteria() {
-  var userChoseNumbers = confirm("Do you want numbers in your password?");
-  var options = {
-    userChoseNumbers: userChoseNumbers
+function pWordRules() {
+  var userNumbers = confirm("Do you want numbers in your password?");
+  var possible = {
+    userNumbers: userNumbers
   };
-  return options;
+  return possible;
 }
 
-function createRandom(length) {
-  var randomNum = Math.floor(Math.random() * length);
-  return randomNum;
+function randomChoice(length) {
+  var randomNumber = Math.floor(Math.random() * length);
+  return randomNumber;
 }
 
-function generatePassword() {
-    var userChose = getPasswordCriteria();
-    var availableChars = [];
-    var passwordArr = [];
-    if(userChose.userChoseNumbers) {
-      availableChars = availableChars.concat(numbers);
+function makePWord() {
+    var chosen = pWordRules();
+    var useableChars = [];
+    var pWordArr = [];
+    if(chosen.userNumbers) {
+      useableChars = useableChars.concat(numbers);
     }
 
-    for(var i = 0; i < 4; i++) {
-      passwordArr.push(availableChars[createRandom(availableChars.length)])
+    for(var i = 0; i < 6; i++) {
+      pWordArr.push(useableChars[randomChoice(useableChars.length)])
     }
 
 
-  return passwordArr.join("")
+  return pWordArr.join("")
 }
 
 // Assignment Code
@@ -84,11 +79,11 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var passWordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  passWordText.value = password;
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// Added event listener to generate a button
+makeBtn.addEventListener("click", writePassword);
