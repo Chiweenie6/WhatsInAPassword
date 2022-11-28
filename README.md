@@ -3,7 +3,7 @@ Creating a password using JavaScript
 
 
 ## Description
-This program will create a random password using JavaScript. The password will fit certain criteria to ensure a safe and secure password. The password will be created through yes/no or true/false prompts with boolean objects.
+This program will create a random password using JavaScript. The password will fit certain criteria to ensure a safe and secure password. The password will be created through yes/no or true/false prompts with boolean objects. The password will include lowercase, uppercase, numeric, and/or special characters.
 
 The deployed URL - 
 
