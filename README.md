@@ -15,7 +15,8 @@ N/A
 ## Usage
 To create a strong and secure password.
 
-Image:
+Image:![image](https://user-images.githubusercontent.com/113393706/204190896-489b7127-e848-42c1-b635-6c2fbe0b40c7.png)
+
 
 ## Credits
 
