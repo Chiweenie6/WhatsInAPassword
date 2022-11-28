@@ -16,61 +16,69 @@ generateBtn.addEventListener("click", writePassword);
 
 
 
-// let myNewPassword = prompt("What is your new password?");
-
-// if (myNewPassword.length < 8) {
-//   alert("Your new password is too short.");
-// } else if (myNewPassword.length > 128){
-//   alert("Your new password is too long.")
-// } else {
-//   prompt()
-// }
-
-// function generatePassword(){
-//   var myNewPassword = "",
-  
-  // confirm()
-  // alert()
-  // prompt()
-  
-  // parseInt()
-  
-  // Math.floor(math.random() * Array.length)
-  
-  //   return
-  // }
-  
-// sign = window.prompt("hello");
+// Alphabet criteria
+var lowerLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+// var lowerLetters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+var userLowerLetters;
 
 
+var upperLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+// var upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+var userUpperLetters;
 
 
+// Numeric criteria
+var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var userNumbers;
+
+
+// Special characters criteria
+spChars = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "{", "}", "[", "]", "|", ":", ";","'", '"', "<", ">", ",", ".", "?"];
+var userSpChars;
 
 
 // Password length criteria
-generateBtn.addEventListener("click", pWordLength);
+var pWordLength = "";
+var pWordLength = prompt("How long do you want your password to be?");
 
-function pWordLength() {
-  let userPLength = window.prompt("How long do you want your password to be?");
-  if (userPLength < 8) {
-    alert("Your password is too short, length must be between 8 and 128 characters.");
-    if (userPLength < 8) pWordLength();
-    // pWordLength.addEventListener("close", pWordLength);
-  } else if (userPLength > 128) {
-    alert("Your password is too long, length must be between 8 and 128 characters.");
-    if (userPLength > 128) pWordLength();
-  } else {
-    // return pWordLength;
-  }; return pWordLength;
-}
-var userPLength = pWordLength;
+if (pWordLength < 8 || pWordLength > 128)
 
 
-// Alphabet Criteria
-generateBtn.addEventListener("click", pWordLetters);
 
-var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// var letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+
+
+
+
+
+
+
+
+
+
+// // var userPLength = prompt("How long do you want your password to be?");
+
+// var pLength = prompt("How long do you want your password to be?");
+
+// function pWordLength () {
+//   let userPLength = prompt("How long do you want your password to be?");
+//   if (userPLength < 8) {
+//     alert("Your password is too short, length must be between 8 and 128 characters.");
+//     if (userPLength < 8) pWordLength();
+//   } else if (userPLength > 128) {
+//     alert("Your password is too long, length must be between 8 and 128 characters.");
+//     if (userPLength > 128) pWordLength();
+//   } else {
+//   }; return;
+// }
+
+
+
+
+
+
+
+
+
 
 function pWordLetters() {
   var userLetters = confirm("Would you like letters in your password?");
@@ -80,25 +88,25 @@ function pWordLetters() {
   return ranLetters;
 }
 
-function randomChoice(length) {
-  var randomChars = Math.floor(Math.random() * length);
-  return randomChars;
-}
+// function randomChoice(length) {
+//   var randomChars = Math.floor(Math.random() * length);
+//   return randomChars;
+// }
 
-function generatePassword() {
-  var chosen = pWordLetters();
-  var useableLetters = [];
-  var pWordArrL = [];
-  if(chosen.userLetters) {
-    useableLetters = useableLetters.concat(letters);
-  }
+// function generatePassword() {
+//   var chosen = pWordLetters();
+//   var useableLetters = [];
+//   var pWordArrL = [];
+//   if(chosen.userLetters) {
+//     useableLetters = useableLetters.concat(letters);
+//   }
 
-  for(var i = 0; i < 6; i++) {
-    pWordArrL.push(useableLetters[randomChoice(useableLetters.length)])
-  }
+//   for(var i = 0; i < 6; i++) {
+//     pWordArrL.push(useableLetters[randomChoice(useableLetters.length)])
+//   }
 
-return pWordArrL.join("");
-}
+// return pWordArrL.join("");
+// }
 
 
 
@@ -120,18 +128,23 @@ function randomChoice(length) {
 }
 
 function generatePassword() {
-    var chosen = pWordNumbers();
+    var chosen = pWordLetters(); pWordNumbers();
     var useableNums = [];
     var pWordArr = [];
+
     if(chosen.userNumbers) {
       useableNums = useableNums.concat(numbers);
     }
+    if(chosen.userLetters) {
+      useableNums = useableNums.concat(letters);
+    }
+    // if(chosen.) {
+    //   useableNums = useableNums.concat(numbers[]: letters[]);
+    // }
 
-    for(var i = 0; i < 5; i++) {
+    for(var i = 0; i < pLength; i++) {
       pWordArr.push(useableNums[randomChoice(useableNums.length)])
     }
-
-
   return pWordArr.join("")
 }
 
