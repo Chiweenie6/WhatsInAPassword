@@ -39,15 +39,56 @@ var userSpChars;
 
 // Password length criteria
 var pWordLength = "";
+
+
+function generatePassword() {
 var pWordLength = prompt("How long do you want your password to be?");
 
-if (pWordLength < 8 || pWordLength > 128)
+if (pWordLength < 8 || pWordLength > 128) {
+  alert("Your password must be between 8 and 128 characters. Please enter new password length.");
+  if (pWordLength < 8 || pWordLength > 128) {pWordLength;}
+} else {
+  alert("Your password will be " + document.pWordLength + "characters long.")
+}
 
+// Characters for password prompts
+var userLowerLetters = confirm("Would you like lower case letters in your password?");
+var userUpperLetters = confirm("Would you like upper case letters in you password?");
+var userNumbers = confirm("Would you like numbers in your password?")
+var userSpChars = confirm("would you like special characters in your password?")
 
+// 
+var charSoup = [];
 
+if (userLowerLetters) {
+    charSoup = charSoup.concat(lowerLetters);
+  }
 
+if (userUpperLetters) {
+    charSoup = charSoup.concat(upperLetters);
+  }
 
+if (userNumbers) {
+    charSoup = charSoup.concat(numbers);
+  }
 
+if (userSpChars) {
+    charSoup = charSoup.concat(spChars);
+  }
+
+// console.log(charSoup);
+
+// function randoChars(length) {
+//   var mixUp = Math.floor(Math.random() * length);
+//   return mixUp;
+// }
+
+var newPassword = "";
+for (var i = 0; i < pWordLength; i++) {
+  newPassword = newPassword + charSoup[Math.floor(Math.random() * charSoup.length)];
+}
+return newPassword;
+}
 
 
 
@@ -73,20 +114,13 @@ if (pWordLength < 8 || pWordLength > 128)
 
 
 
-
-
-
-
-
-
-
-function pWordLetters() {
-  var userLetters = confirm("Would you like letters in your password?");
-  var ranLetters = {
-    userLetters: userLetters
-  };
-  return ranLetters;
-}
+// function pWordLetters() {
+//   var userLetters = confirm("Would you like letters in your password?");
+//   var ranLetters = {
+//     userLetters: userLetters
+//   };
+//   return ranLetters;
+// }
 
 // function randomChoice(length) {
 //   var randomChars = Math.floor(Math.random() * length);
@@ -112,41 +146,41 @@ function pWordLetters() {
 
 
 // Numeric character type
-var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+// var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-function pWordNumbers() {
-  var userNumbers = confirm("Would you like numbers in your password?");
-  var ranNumbers = {
-    userNumbers: userNumbers
-  };
-  return ranNumbers;
-}
+// function pWordNumbers() {
+//   var userNumbers = confirm("Would you like numbers in your password?");
+//   var ranNumbers = {
+//     userNumbers: userNumbers
+//   };
+//   return ranNumbers;
+// }
 
-function randomChoice(length) {
-  var randomChars = Math.floor(Math.random() * length);
-  return randomChars;
-}
+// function randomChoice(length) {
+//   var randomChars = Math.floor(Math.random() * length);
+//   return randomChars;
+// }
 
-function generatePassword() {
-    var chosen = pWordLetters(); pWordNumbers();
-    var useableNums = [];
-    var pWordArr = [];
+// function generatePassword() {
+//     var chosen = pWordLetters(); pWordNumbers();
+//     var useableNums = [];
+//     var pWordArr = [];
 
-    if(chosen.userNumbers) {
-      useableNums = useableNums.concat(numbers);
-    }
-    if(chosen.userLetters) {
-      useableNums = useableNums.concat(letters);
-    }
-    // if(chosen.) {
-    //   useableNums = useableNums.concat(numbers[]: letters[]);
-    // }
+//     if(chosen.userNumbers) {
+//       useableNums = useableNums.concat(numbers);
+//     }
+//     if(chosen.userLetters) {
+//       useableNums = useableNums.concat(letters);
+//     }
+//     // if(chosen.) {
+//     //   useableNums = useableNums.concat(numbers[]: letters[]);
+//     // }
 
-    for(var i = 0; i < pLength; i++) {
-      pWordArr.push(useableNums[randomChoice(useableNums.length)])
-    }
-  return pWordArr.join("")
-}
+//     for(var i = 0; i < pLength; i++) {
+//       pWordArr.push(useableNums[randomChoice(useableNums.length)])
+//     }
+//   return pWordArr.join("")
+// }
 
 
 
